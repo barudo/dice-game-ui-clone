@@ -1,0 +1,618 @@
+:root {
+  --bg: #142832;
+  --surface: #0f212e;
+  --surface-2: #213743;
+  --surface-3: #2f4553;
+  --line: #304b5b;
+  --text: #eef5ff;
+  --muted: #b7c6da;
+  --green: #00e701;
+  --red: #ff174f;
+  --blue: #1f80e0;
+  --blue-2: #4391e7;
+  --shadow: #07131b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+input {
+  min-width: 0;
+}
+
+.shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(47, 69, 83, 0.5), transparent 34rem),
+    var(--bg);
+  padding: 0 24px 24px;
+}
+
+.topbar {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+}
+
+.brandMark {
+  position: absolute;
+  left: 10px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #91a6b5;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.walletBox {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #0b1c29;
+  color: white;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.walletBox span {
+  padding: 0 6px 0 16px;
+}
+
+.walletBox svg:not(.coinIcon) {
+  color: #9eb0c2;
+  margin: 0 14px 0 8px;
+}
+
+.walletBox button {
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: white;
+  padding: 0 17px;
+  font-weight: 800;
+}
+
+.coinIcon {
+  color: #f7931a;
+  fill: #f7931a;
+}
+
+.gameFrame {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-rows: minmax(578px, calc(100vh - 124px)) 64px;
+  max-width: 1120px;
+  margin: 40px auto 0;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--surface);
+  box-shadow: 0 18px 44px rgba(3, 12, 18, 0.28);
+}
+
+.betPanel {
+  grid-row: 1 / 2;
+  padding: 12px;
+  background: var(--surface-2);
+}
+
+.modeSwitch {
+  display: grid;
+  grid-template-columns: 1fr 1fr 40px;
+  align-items: center;
+  gap: 6px;
+  min-height: 50px;
+  padding: 5px;
+  margin-bottom: 8px;
+  border-radius: 28px;
+  background: #0f212e;
+}
+
+.modeSwitch button {
+  height: 40px;
+  border-radius: 22px;
+  background: transparent;
+  color: white;
+  font-weight: 800;
+}
+
+.modeSwitch .active {
+  background: var(--surface-3);
+}
+
+.modeSwitch .iconButton {
+  width: 36px;
+  color: var(--muted);
+}
+
+.fieldLabel {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 12px 0 5px;
+  color: #b8c7e4;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.inputSplit,
+.inputWithCoin,
+.compactField div,
+.metric div {
+  display: flex;
+  align-items: center;
+  background: #0f212e;
+  border: 2px solid var(--surface-3);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.32);
+}
+
+.inputSplit {
+  height: 40px;
+}
+
+.inputWithCoin {
+  flex: 1;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.inputWithCoin.solo {
+  height: 40px;
+  border: 2px solid var(--surface-3);
+  background: var(--surface-3);
+}
+
+.inputWithCoin input,
+.metric input,
+.compactField input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  font-weight: 800;
+}
+
+.inputWithCoin input {
+  padding: 0 8px;
+}
+
+.inputWithCoin svg {
+  margin-right: 10px;
+  flex: 0 0 auto;
+}
+
+.inputSplit > button {
+  width: 48px;
+  height: 100%;
+  border-left: 1px solid var(--line);
+  background: var(--surface-2);
+  color: white;
+  font-weight: 900;
+}
+
+.autoGrid {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.compactField {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.compactField div {
+  height: 36px;
+  padding: 0 10px;
+}
+
+.compactField b {
+  color: var(--muted);
+}
+
+.betButton {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 12px;
+  border-radius: 4px;
+  background: var(--green);
+  color: #00190a;
+  font-size: 15px;
+  font-weight: 900;
+  box-shadow: 0 2px 0 #008f1e;
+}
+
+.playArea {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 16px;
+  border-left: 1px solid #19313f;
+}
+
+.resultHistory {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: min(100%, 460px);
+}
+
+.pill {
+  min-width: 60px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #071018;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.pill.win {
+  background: var(--green);
+}
+
+.pill.loss {
+  background: var(--surface-3);
+  color: white;
+}
+
+.sliderWrap {
+  align-self: center;
+  width: min(92%, 730px);
+  margin: 48px auto 0;
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0 24px 6px;
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.scale span {
+  position: relative;
+}
+
+.scale span:not(:first-child):not(:last-child) {
+  text-align: center;
+}
+
+.scale span:last-child {
+  text-align: right;
+}
+
+.scale span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--surface-3);
+  transform: rotate(45deg);
+}
+
+.scale span:not(:first-child):not(:last-child)::after {
+  left: calc(50% - 5px);
+}
+
+.scale span:last-child::after {
+  left: auto;
+  right: 0;
+}
+
+.sliderShell {
+  position: relative;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-radius: 32px;
+  background: var(--surface-3);
+}
+
+.rangeTrack {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 8px #1b313e;
+}
+
+.diceSlider {
+  position: absolute;
+  inset: 0 24px;
+  width: calc(100% - 48px);
+  height: 58px;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  outline: 0;
+}
+
+.diceSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, transparent 11px, rgba(21, 78, 139, 0.34) 11px 13px, transparent 13px 16px, rgba(21, 78, 139, 0.34) 16px 18px, transparent 18px 21px, rgba(21, 78, 139, 0.34) 21px 23px, transparent 23px),
+    var(--blue-2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.diceSlider::-moz-range-thumb {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--blue-2);
+}
+
+.rollMarker {
+  position: absolute;
+  top: -52px;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-width: 58px;
+  height: 31px;
+  padding: 0 8px;
+  border-radius: 999px;
+  color: #071018;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.rollMarker::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background: inherit;
+}
+
+.rollMarker.win {
+  background: var(--green);
+}
+
+.rollMarker.loss {
+  background: var(--red);
+  color: white;
+}
+
+.mobileHint {
+  display: none;
+}
+
+.statsPanel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 16px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.16);
+}
+
+.metric {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.metric div {
+  height: 40px;
+}
+
+.metric input {
+  padding: 0 8px;
+  font-size: 15px;
+}
+
+.metric button {
+  width: 44px;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.gameFooter {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 3px solid #213743;
+  background: var(--surface);
+}
+
+.gameFooter nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px;
+  border-right: 1px solid var(--line);
+}
+
+.gameFooter button {
+  width: 46px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--muted);
+}
+
+.squareIcon {
+  width: 14px;
+  height: 12px;
+  border: 2px solid currentColor;
+}
+
+.gameFooter .fairness {
+  width: auto;
+  margin-right: 18px;
+  color: #c7d8f3;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+@media (max-width: 860px) {
+  .shell {
+    padding: 0 12px 16px;
+  }
+
+  .gameFrame {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(430px, 58vh) 58px;
+    margin-top: 20px;
+  }
+
+  .betPanel {
+    grid-row: 1;
+  }
+
+  .playArea {
+    grid-row: 2;
+    border-left: 0;
+    border-top: 1px solid #19313f;
+  }
+
+  .resultHistory {
+    position: static;
+    margin-bottom: 26px;
+  }
+
+  .sliderWrap {
+    width: 100%;
+    margin: 12px auto;
+  }
+
+  .statsPanel {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .gameFooter {
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    justify-content: flex-end;
+  }
+
+  .walletBox {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .walletBox button {
+    padding: 0 12px;
+  }
+
+  .gameFrame {
+    border-radius: 0;
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  .modeSwitch {
+    grid-template-columns: 1fr 1fr 34px;
+  }
+
+  .pill {
+    min-width: 54px;
+    height: 30px;
+  }
+
+  .scale {
+    font-size: 12px;
+    padding-inline: 14px;
+  }
+
+  .sliderShell {
+    height: 52px;
+    padding-inline: 14px;
+  }
+
+  .diceSlider {
+    inset: 0 14px;
+    width: calc(100% - 28px);
+  }
+
+  .mobileHint {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .gameFooter nav {
+    padding-inline: 4px;
+  }
+
+  .gameFooter button {
+    width: 40px;
+  }
+}
