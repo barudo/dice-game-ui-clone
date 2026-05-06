@@ -3,7 +3,6 @@
 import {
   BarChart3,
   ChevronDown,
-  Coins,
   RotateCcw,
   Settings,
   Shuffle,
@@ -12,6 +11,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { BitcoinIcon } from "./BitcoinIcon";
 
 type Mode = "manual" | "auto";
 type Direction = "over" | "under";
@@ -165,7 +165,7 @@ export function DiceGame() {
         <div className="brandMark">S</div>
         <div className="walletBox">
           <span>{formatBtc(balance, 8)}</span>
-          <Coins size={14} className="coinIcon" />
+          <BitcoinIcon size={14} className="coinIcon" />
           <ChevronDown size={16} />
           <button type="button">
             <Wallet size={16} />
@@ -203,13 +203,16 @@ export function DiceGame() {
                 value={formatBtc(betAmount, 8)}
                 onChange={(event) => setBetSafely(Number(event.target.value))}
               />
-              <Coins size={15} className="coinIcon" />
+              <BitcoinIcon size={15} className="coinIcon" />
             </div>
             <button type="button" onClick={() => setBetSafely(betAmount / 2)}>
               1/2
             </button>
             <button type="button" onClick={() => setBetSafely(betAmount * 2)}>
-              2x
+              <span className="multiplierText">
+                <span>2</span>
+                <span>x</span>
+              </span>
             </button>
           </div>
 
@@ -219,7 +222,7 @@ export function DiceGame() {
           </label>
           <div className="inputWithCoin solo">
             <input aria-label="Profit on win" readOnly value={formatBtc(profitOnWin, 8)} />
-            <Coins size={15} className="coinIcon" />
+            <BitcoinIcon size={15} className="coinIcon" />
           </div>
 
           {mode === "auto" ? (

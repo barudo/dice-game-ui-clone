@@ -224,6 +224,14 @@ input {
   background: var(--surface-2);
   color: white;
   font-weight: 900;
+  line-height: 1;
+}
+
+.multiplierText {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  line-height: 1;
 }
 
 .autoGrid {
